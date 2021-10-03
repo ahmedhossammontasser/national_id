@@ -42,11 +42,11 @@ class NationalIdService(object):
 			:return: bool
 		'''
 		if len(self.national_id) != 14 or  ( self.national_id[0] not in ['2', '3']) or ( not self.national_id.isdigit()):
-			print("self is invalid")
 			return False
 		return True
 
-	def is_birthday_valid(self, birthday):
+	@staticmethod
+	def is_birthday_valid(birthday):
 		'''
 			check if birthday id is valid
 				must bigger than 16 years old
@@ -113,7 +113,7 @@ class NationalIdService(object):
 		'''
 		info = {}
 		info['birthday'] = self.get_birthday()
-		if ( not self.is_birthday_valid(info['birthday']) ) or (not self.is_governorate_valid() ):
+		if ( not NationalIdService.is_birthday_valid(info['birthday']) ) or (not self.is_governorate_valid() ):
 			return False , {}
 		info['govermant_code'] = self.get_govermante_code()
 		info['gender'] = self.get_gender()
