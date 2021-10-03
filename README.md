@@ -4,6 +4,8 @@ postgresql for database
 
 Make sure you create database named **nationalid** with user_name: **postgres**
 
+Run **pipenv install** to install libaraies needed for project
+
 Run **python manage.py migrate**
 
 Run **python manage.py runserver** to start the server
